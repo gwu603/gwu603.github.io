@@ -1,17 +1,14 @@
 html {
-    background-color: #cbcfb8;
-
+    background-color: #e6baa8;
 }
 
-
 body {
-    font-family: 'Libre Franklin', sans-serif;
+    font-family: "Lucida Console", "Courier New", monospace;
     margin:0;
     padding:0;
 }
 
 #title_screen{
-    background-color: #cbcfb8;
     height:100vh;
     width:100%;
 }
@@ -22,22 +19,26 @@ body {
     top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width:66%;
+    width:80%;
     height:30%
 }
 
-#name_text{
+#title_words_wrapper{
     font-size: 8vh;
-    padding:1vh;
     text-align: center;
     height:100%;
-    
+    max-width:fit-content;
+    position: relative;
+    left:50%;
+    top:50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
 }
 
 #social_icons{
-    display:flex;
-    height:4dvw;
-    width:50%;
+    display: flex;
+    height: 6dvw;
+    width: 50%;
     left: 50%;
     position: relative;
     transform: translate(-50%, -50%);
@@ -49,22 +50,44 @@ body {
     align-content: center;
 }
 
-.social_icon_btn{
-    border: none;
-    background: none;
-    cursor: pointer;
-    margin: 0;
-    padding: 0;
-    background-color: transparent;
-    height:100%;
+.social_icon_img {
+    height: 75%;
     position: relative;
     left:50%;
-    top: 50%;
+    top:50%;
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
-
+    filter: grayscale(40%);
+    -webkit-filter: grayscale(40%);
+    opacity: 0.4;
 }
 
-.social_icon_img {
-    height: 100%;
+.social_icon_img:hover {
+    filter: grayscale(0%);
+    -webkit-filter: grayscale(0%);
+    opacity: 1.0;
+    transition: 0.6s ease;
+    filter: brightness(1.1) saturate(150%);
+    filter: drop-shadow(0dvw 0dvw 0.1dvw black);
+}
+
+#title_words {
+    overflow: hidden;
+    border-right: 3px solid black;
+    white-space: nowrap;
+    margin: 0 auto;
+    animation: 
+      typing 1.75s steps(40),
+      blink .75s step-end infinite;
+}
+  
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+  
+@keyframes blink {
+    50% {
+        border-color: transparent
+    }
 }
